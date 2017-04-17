@@ -1,0 +1,426 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.video-container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    //position:relative; - Se cambia a absolute para que la leyenda de Bienvenido este encima del video
+    position: absolute;
+    video{
+        // Cubra toda la pantalla
+        min-width: 100%;
+        min-height: 100%;
+
+        // Para que el navegador no altere (estire el video)
+        width: auto;
+        height: auto;
+
+        //Centrar el video
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+    }
+}
+
+.navigation{
+    li{
+        //Extiende para que tome la clase medium
+        @extend .medium;
+        padding: 5px 10px;
+        transition: all 0.5s;
+        &:hover{
+            background-color:rgba(0,0,0,0.5);
+        }
+        a{
+            color: white;
+            cursor: pointer;
+
+            //Este es un sedeuselector
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+//Se hace un selector
+//Se agrega un bottom de 0px en la posicion absolute y que cuando este en conjunto con la clase fixed se agregue un top de 0px
+//El ul se le deja el margin en 0px para que no haga el efecto feo de agrandar el div cuando este en top 0
+#description{
+    ul{
+        margin: 0px;
+    }
+    &.absolute{
+        bottom:0px;
+    }
+
+    &.fixed{
+        top: 0px;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+//Fondo de la leyenda de abajo de "Saludos"
+.black{
+    background-color: #222;
+}
+
+//No margen entre logo y leyenda bienvenida
+.no-margin{
+    margin: 0px;
+}
+
+//Tamaño de texto de la leyenda de "Saludos"
+.medium{
+    font-size: 1.5em;
+}
+
+//Padding de la leyenda de "Saludos"
+.large-padding{
+    padding: 10px 15px;
+}
+
+//Color del texto de bienvenida
+.white-text{
+    color: white;
+}
+
+//Fuente por si en algun momento el navegador no reconoce el link en index
+.dancing-script{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400;
+}
+
+.title{
+    font-size: 4em;
+}
+
+//Posicion en absolute para que no empuje el logo y el texto de bienvenida con el de saludos
+.absolute{
+    position: absolute;
+}
+
+//Posicion para el menu, la navigation
+.fixed{
+    position: fixed;
+}
+
+//Posicion relativa para que el texto este encima del video
+.relative{
+    position: relative;
+}
+
+//Para que siempre este el div abajo. (La leyenda en este caso de saludos)
+.bottom{
+    bottom: 0px;
+}
+
+//Una letra hacia abajo
+.top{
+    top: 3em;
+}
+
+//Cinco letras a la derecha
+.right{
+    right: 5em;
+}
+//De esta manera el texto tiene un z-index de 5 para que este encima del video
+.up{
+    z-index: 5;
+}
+
+//Para que el tamaño del div del texto de bienvenida tenga el 100%
+.full-height{
+    height: 100%;
+}
+
+//Para que abarque todo el ancho de la pantalla la leyenda de saludos
+.full-width{
+    width: 100%;
+}
+
+//Quitar el margin que tiene por default por la libreria de flexboxgrid
+.row{
+    margin: 0;
+}
+
+
+
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    p:first-letter,
+    div:first-letter,
+    blockquote:first-letter,
+    li:first-letter,
+    p:first-line,
+    div:first-line,
+    blockquote:first-line,
+    li:first-line {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

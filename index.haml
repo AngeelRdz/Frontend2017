@@ -1,0 +1,83 @@
+!!!5
+%html{class:"no-js", lang:"es"}
+	%head
+		%meta{charset:"utf-8"}
+		%title Frontend Web
+		%meta{name:"description", content:"Descripción de esta Página Web realizada con Haml y Sass"}
+		%meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+
+		%link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Dancing+Script"}
+		
+		%link{rel:"stylesheet", href:"css/normalize.css"}
+		%link{rel:"stylesheet", href:"css/bootstrap.css"}
+		%link{rel:"stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"}
+		%link{rel:"stylesheet", href:"css/style.css"}
+
+		%script{src:"js/vendor/modernizr-2.8.3.min.js"}
+	%body
+		="<!--[if lte IE 9]>"
+		%p{class:"browserupgrade"}
+			Estas usando un navegador
+			%strong desactualizado.
+			Por favor
+			%a{href:"http://browsehappy.com/"}
+			actualiza tu navegador
+			para una mejor experiencia
+		="<![endif]-->"
+
+		.video-container
+			%video{autoplay: true, loop: true, width:"12800", height:"720", poster:"videos/images/Inbox-Zero.jpg"}
+				%source{src:"videos/mp4/Inbox-Zero.mp4", typ:"video/mp4"}
+				%source{src:"videos/webm/Inbox-Zero.webm", typ:"video/webm"}
+
+		.row.full-height.middle-xs.center-xs.relative.up
+			.col-xs-12
+				.box.white-text
+					%img{src:"imgs/logo.png", width:200}
+					%h1.dancing-script.title.no-margin Bienvenidos Abril 2017
+					%p#is-open
+						%i.glyphicon.glyphicon-time 
+						Abierto ahora
+
+			%nav.fixed.top.right.navigation.white-text#navigation
+				
+				="<!-- Una manera de mostrar el Menu>"
+				-menu = ["Inicio", "Menú", "Galería", "Contacto", "¿Cómo llegar?"]
+				%ul.list-inline
+					-menu.each do |item|
+						="<!%li= item-->"
+				
+				= "<!-- Segunda manera de mostrar el Menu>"
+				%ul.list-inline
+					%li Inicio
+					%li Menú
+					%li Galería
+					%li Contacto
+					="<!%li ¿Cómo llegar?-->"
+
+				-menu = ["Inicio", "Menú", "Galería", "Contacto", "¿Cómo llegar?"]
+				%ul.list-inline
+					-menu.each do |item|
+						%li
+							%a{}= item
+			.absolute.black.large-padding.white-text.full-width#description
+				.row.middle-xs.center-xs
+					.col-xs-7.col-sm-6.white-text.medium
+						%p Saludos a los que visitan esta Página Web realizada por Ángeel Rdz
+					.col-xs.hidden#sticky-navigation
+						.box
+							%nav.text-right.navigation
+								%ul.list-inline
+									-menu.each do |item|
+										%li
+											%a{}= item
+		.full-height 
+
+
+
+		%script{src:"http://code.jquery.com/jquery-3.2.1.min.js", integrity:"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin:"anonymous"}
+		
+		%script
+			window.jQuery || document.write("<script src='js/vendor/jquery-1.12.0.min.js'><\/script>")
+
+		%script{src:"js/main.js"}
