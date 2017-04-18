@@ -133,6 +133,27 @@ textarea {
   top: 0px;
 }
 
+.food {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.food:hover .screen {
+  top: 0%;
+}
+
+.food .screen {
+  top: -100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  transition: top 0.8s;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

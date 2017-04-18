@@ -53,13 +53,13 @@
 		//$("#navigation").addClass("hidden")
 
 		//Se agrega animacion para mostrar
-		$("#navigation").slideUp("slow")
+		$("#navigation").slideUp("100")
 
 		//Se quitara la clase hidden al id #sticky-navigation
 		//$("#sticky-navigation").removeClass("hidden")
 
 		//Se agrega animacion para ocultar
-		$("#sticky-navigation").slideDown("slow")
+		$("#sticky-navigation").slideDown("100")
 	}
 
 	function unStickNavigation(){
@@ -70,13 +70,13 @@
 		//$("#navigation").removeClass("hidden")
 
 		//Se agrega animacion para ocultar
-		$("#navigation").slideDown("slow")
+		$("#navigation").slideDown("100")
 
 		//Se agregara la clase hidden al id #sticky-navigation
 		//$("#sticky-navigation").addClass("hidden")
 
 		//Se agrega animacion para mostrar
-		$("#sticky-navigation").slideUp("slow")
+		$("#sticky-navigation").slideUp("100")
 	}
 
 	function isInBottom(){
@@ -86,8 +86,8 @@
 		const descriptionHeight = $description.height()
 
 		//Nos devuelve true o false - falso cuando estamos arriba y verdadero cuando estamos abajo (tope de la ventana)
-		//Si es masyor al tamaño de la ventana menos descripcionheight por 1.5 es para darle mas espacio
-		return $(window).scrollTop() > $(window).height() - (descriptionHeight * 1.5)
+		//Si es masyor al tamaño de la ventana menos descripcionheight por 5.5 es para darle mas espacio
+		return $(window).scrollTop() > $(window).height() - (descriptionHeight * 5.5)
 	}
 
 })()
