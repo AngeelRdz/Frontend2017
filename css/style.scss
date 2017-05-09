@@ -185,9 +185,60 @@ textarea {
     top: calc(33% - 2.5em);
 }
 
+#gallery{
+    width: 100%;
+    overflow-x: hidden;
+        .inner{
+            white-space: nowrap;
+            position: relative;
+            //Valor inicial
+            left: 0;
+            transition: left 2s;
+        }
+        .image{
+            display: inline-block;
+            margin-right: -4px;
+            height: 100vh;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+}
+
+//Formulario
+input,textarea{
+    font-size: 2em;
+    padding:0.5em;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px #eee;
+    background-color: transparent;
+    width: 100%;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+.card{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container{
+    .card{
+        margin-top: -140px;
+        padding: 2em;
+    }
+}
+
+.top-space{
+    margin-top: 2em;
+}
+
+#contact{
+    margin-top: -140px;
+}
 
 //Fondo de la leyenda de abajo de "Saludos"
 .black{
@@ -197,6 +248,15 @@ textarea {
 //Fondo de la leyenda de MENU
 .white{
     background-color: white;
+}
+
+.black-text{
+    color: black;
+}
+
+//Anchura del tipo de letra para la card
+.slim{
+    font-weight: 200;
 }
 
 //No margen entre logo y leyenda bienvenida

@@ -162,15 +162,72 @@ textarea {
   top: calc(33% - 2.5em);
 }
 
+#gallery {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#gallery .inner {
+  white-space: nowrap;
+  position: relative;
+  left: 0;
+  transition: left 2s;
+}
+
+#gallery .image {
+  display: inline-block;
+  margin-right: -4px;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+input, textarea {
+  font-size: 2em;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  border-bottom: solid 1px #eee;
+  background-color: transparent;
+  width: 100%;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+.card {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container .card {
+  margin-top: -140px;
+  padding: 2em;
+}
+
+.top-space {
+  margin-top: 2em;
+}
+
+#contact {
+  margin-top: -140px;
+}
+
 .black {
   background-color: #222;
 }
 
 .white {
   background-color: white;
+}
+
+.black-text {
+  color: black;
+}
+
+.slim {
+  font-weight: 200;
 }
 
 .no-margin {
