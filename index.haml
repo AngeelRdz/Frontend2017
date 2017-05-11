@@ -105,17 +105,20 @@
 			.row.middle-xs.full-height
 				.col-xs-12
 					.box
-						%form{action:"https://formspree.io/rodriguez_1409@hotmail.com", method:"POST", id:"contact-form"}
+						%form{action:"https://formspree.io/rodriguez_1409@hotmail.com", method:"POST", id:"contact-form", class:"step-form"}
 							.row.center-xs
 								.col-xs-2.col-md-1
 									.box
 								.col-md-5
 									.box
-										%input{type:"email", name:"email", placeholder:"Coloca tu correo electrónico"}
-										%input{type:"text", name:"name", placeholder:"Coloca tu nombre"}
-										%textarea{name:"body", placeholder:"Escribe aquí tu mensaje..."}
-										%div
-											%button{type:"submit", class:"btn"}Enviar
+										%fieldset.step
+											%input{type:"email", name:"email", placeholder:"Coloca tu correo electrónico", class:"input"}
+										%fieldset.step
+											%input{type:"text", name:"name", placeholder:"Coloca tu nombre", class:"input"}
+										%fieldset.step
+											%textarea{name:"body", placeholder:"Escribe aquí tu mensaje...", class:"input"}
+											%div
+												%button{type:"submit", class:"btn"}Enviar
 
 		%script{src:"http://code.jquery.com/jquery-3.2.1.min.js", integrity:"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin:"anonymous"}
 		

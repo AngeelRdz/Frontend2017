@@ -93,7 +93,7 @@
 		//Se agrega la clase hidden al id #navigation
 		//$("#navigation").addClass("hidden")
 
-		//Se agrega animacion para mostrar
+		//Se agrega animacion para mostrar el contenido
 		$("#navigation").slideUp("100")
 
 		//Se quitara la clase hidden al id #sticky-navigation
